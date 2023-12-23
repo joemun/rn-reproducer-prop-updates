@@ -1,3 +1,5 @@
+# How to run first time
+
 ```
 brew tap homebrew/cask-versions
 brew install --cask zulu17
@@ -6,6 +8,25 @@ yarn start
 
 JAVA_HOME='/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home'
 yarn android
+```
+
+# CODEGEN
+
+If making changes to `rtn-centered-text` package, run this first.
+
+```
+$ yarn upgrade rtn-centered-text
+```
+
+Then run codegen from the android app folder.
+
+```
+$ cd android
+$ ./gradlew generateCodegenArtifactsFromSchema
+```
+
+```
+$ yarn upgrade rtn-centered-text && cd android && ./gradlew generateCodegenArtifactsFromSchema && cd .. && yarn android
 ```
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
